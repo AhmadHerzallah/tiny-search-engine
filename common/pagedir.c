@@ -8,9 +8,16 @@
 #include <stdio.h>
 #include <string.h>
 #include "../libcs50/webpage.h"
+#include "../libcs50/file.h"
+#define _POSIX_SOURCE
+#include <stdio.h>
+#undef _POSIX_SOURCE
+#include <unistd.h>
 
 bool pagedir_init(const char *pageDirectory);
 void pagedir_save(const webpage_t *page, const char *pageDirectory, const int docID);
+webpage_t* pagedir_load(FILE* file);
+bool pagedir_validatedir(const char *pageDirectory);
 
 bool pagedir_init(const char *pageDirectory)
 {
@@ -66,4 +73,35 @@ void pagedir_save(const webpage_t *page, const char *pageDirectory, const int do
     {
         perror("Error opening file\n");
     }
+}
+
+// module providing functions to load webpages from files in the pageDirectory;
+webpage_t* pagedir_load(FILE* file)
+{
+    char* url = file_readLine(file);
+    char* content = file_readFile(file);
+    char* depth = file_readLine(file);
+    int depthInt = atoi(depth);
+    webpage_t* page = webpage_new(url, depthInt, content);
+
+    if (page == NULL) {
+        fprintf(stderr, "error: couldn't load new webpage from crawler-produced file, exiting non-zero\n");
+        exit(1);
+    }
+
+    free(depth);
+
+    return page;    
+
+}
+
+// validate it received exactly two command-line arguments and that
+bool pagedir_validatedir(const char *pageDirectory) {
+    char fileName[100];
+    sprintf(fileName, "%s/.crawler", pageDirectory);
+    // F_OK. Tests whether the file exists
+    if(access(fileName, F_OK) == 0 ) {
+        return true;
+    }
+    return false;
 }

@@ -1,0 +1,22 @@
+{
+    "files.associations": {
+        "pagedir.h": "c",
+        "webpage.h": "c",
+        "hash_map": "c",
+        "bitset": "c",
+        "chrono": "c",
+        "algorithm": "c",
+        "__bit_reference": "c",
+        "map": "c",
+        "set": "c",
+        "unordered_map": "c",
+        "unordered_set": "c",
+        "unistd.h": "c",
+        "functional": "c",
+        "__locale": "c",
+        "file.h": "c",
+        "word.h": "c",
+        "counters.h": "c",
+        "bag.h": "c"
+    }
+}

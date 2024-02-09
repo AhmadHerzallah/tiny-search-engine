@@ -1,0 +1,83 @@
+gcc -Wall -pedantic -std=c11 -ggdb -I../libcs50  -I../common   -c -o indexer.o indexer.c
+gcc -Wall -pedantic -std=c11 -ggdb -I../libcs50  -I../common indexer.o ../common/index.o ../libcs50/libcs50.a ../common/common.a  -o indexer
+./testing.sh
+make[1]: Entering directory '/thayerfs/home/f006vq6/cs50-dev/tse-AhmadHerzallah/indexer'
+make[1]: 'indexer' is up to date.
+make[1]: Leaving directory '/thayerfs/home/f006vq6/cs50-dev/tse-AhmadHerzallah/indexer'
+make[1]: Entering directory '/thayerfs/home/f006vq6/cs50-dev/tse-AhmadHerzallah/indexer'
+gcc -Wall -pedantic -std=c11 -ggdb -I../libcs50  -I../common   -c -o indextest.o indextest.c
+gcc -Wall -pedantic -std=c11 -ggdb -I../libcs50  -I../common indextest.o ../common/index.o ../libcs50/libcs50.a ../common/common.a  -o indextest
+make[1]: Leaving directory '/thayerfs/home/f006vq6/cs50-dev/tse-AhmadHerzallah/indexer'
+Starting Indexer Tests...
+Processing letters-0...
+✅ letters-0 comparison passed.
+Processing letters-1...
+✅ letters-1 comparison passed.
+Processing letters-2...
+✅ letters-2 comparison passed.
+Processing letters-3...
+✅ letters-3 comparison passed.
+Processing letters-22...
+✅ letters-22 comparison passed.
+Processing toscrape-0...
+✅ toscrape-0 comparison passed.
+Processing toscrape-1...
+✅ toscrape-1 comparison passed.
+Processing toscrape-2...
+✅ toscrape-2 comparison passed.
+Processing toscrape-3...
+✅ toscrape-3 comparison passed.
+Processing wikipedia_1...
+✅ wikipedia_1 comparison passed.
+Processing wikipedia_2...
+✅ wikipedia_2 comparison passed.
+Performing memory leak checks with Valgrind...
+==2620146== Memcheck, a memory error detector
+==2620146== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2620146== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2620146== Command: ./indexer ../data/wikipedia_1/ ../data/wikipedia_1/.index -s
+==2620146== 
+Missing Arguments or extra arguments, please make sure to only fill pageDirectory and indexFileName==2620146== 
+==2620146== HEAP SUMMARY:
+==2620146==     in use at exit: 0 bytes in 0 blocks
+==2620146==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==2620146== 
+==2620146== All heap blocks were freed -- no leaks are possible
+==2620146== 
+==2620146== For lists of detected and suppressed errors, rerun with: -s
+==2620146== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==2620147== Memcheck, a memory error detector
+==2620147== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2620147== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2620147== Command: ./indexer ../data/letters-22/ ../data/letters-22/.index
+==2620147== 
+==2620147== 
+==2620147== HEAP SUMMARY:
+==2620147==     in use at exit: 0 bytes in 0 blocks
+==2620147==   total heap usage: 856 allocs, 856 frees, 76,849 bytes allocated
+==2620147== 
+==2620147== All heap blocks were freed -- no leaks are possible
+==2620147== 
+==2620147== For lists of detected and suppressed errors, rerun with: -s
+==2620147== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+Testing with invalid arguments...
+Missing Arguments or extra arguments, please make sure to only fill pageDirectory and indexFileNameMissing Arguments or extra arguments, please make sure to only fill pageDirectory and indexFileNameCoudln't find targeted file
+Testing indexer with missing arguments...
+Missing Arguments or extra arguments, please make sure to only fill pageDirectory and indexFileNameMissing Arguments or extra arguments, please make sure to only fill pageDirectory and indexFileNameTesting indexer with too many arguments...
+Missing Arguments or extra arguments, please make sure to only fill pageDirectory and indexFileNameTesting indexer with invalid directory...
+Coudln't find targeted file
+Testing indexer with a directory as output file...
+Couldn't find file
+Testing indexer with a read-only file as output...
+Couldn't find file
+Testing indextest with non-existent input file...
+Couldn't open nonexistent.index 
+Testing indextest with non-writable output file...
+Couldn't find file
+make[1]: Entering directory '/thayerfs/home/f006vq6/cs50-dev/tse-AhmadHerzallah/indexer'
+rm -f *~ *.o
+rm -f core
+rm -f ./indexer ./indextest
+rm -f ../data/indextesting/indextestresults.index
+rm -f ../data/letters/.index
+make[1]: Leaving directory '/thayerfs/home/f006vq6/cs50-dev/tse-AhmadHerzallah/indexer'

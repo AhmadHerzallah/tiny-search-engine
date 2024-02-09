@@ -3,6 +3,8 @@
 # David Kotz - April 2016, 2017, 2021
 
 L = libcs50
+LLIBS = ../libcs50/libcs50.a ../common/common.a
+
 .PHONY: all clean
 
 ############## default: make all libs and programs ##########
