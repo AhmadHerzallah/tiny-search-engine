@@ -1,0 +1,101 @@
+gcc -Wall -pedantic -std=c11 -ggdb -I../libcs50  -I../common   -c -o querier.o querier.c
+gcc -Wall -pedantic -std=c11 -ggdb -I../libcs50  -I../common querier.o ../common/index.o ../common/pagedir.o ../libcs50/libcs50.a ../common/common.a  -o querier
+./testing.sh
+Compiling querier...
+make[1]: Entering directory '/thayerfs/home/f006vq6/cs50-dev/tse-AhmadHerzallah/querier'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/thayerfs/home/f006vq6/cs50-dev/tse-AhmadHerzallah/querier'
+Running query tests...
+Query: applicants
+Query? Query: applicants 
+Matches 1 document(s) (ranked):
+docID: 16, score: 2, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html
+-------------------------------------------
+Query? Query: computer
+Query? Query: computer 
+No documents match.
+-------------------------------------------
+Query? Query: day and moments
+Query? Query: day and moments 
+No documents match.
+-------------------------------------------
+Query? Query: war and fall
+Query? Query: war and fall 
+Matches 1 document(s) (ranked):
+docID: 42, score: 1, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/history_32/index.html
+-------------------------------------------
+Query? Query: dresser and male
+Query? Query: dresser and male 
+Matches 1 document(s) (ranked):
+docID: 21, score: 1, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/tipping-the-velvet_999/index.html
+-------------------------------------------
+Query? Query: moments or prada
+Query? Query: moments or prada 
+Matches 2 document(s) (ranked):
+docID: 3, score: 1, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/its-only-the-himalayas_981/index.html
+docID: 65, score: 1, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/womens-fiction_9/index.html
+-------------------------------------------
+Query? Query: fall or tough
+Query? Query: fall or tough 
+Matches 5 document(s) (ranked):
+docID: 8, score: 2, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/rip-it-up-and-start-again_986/index.html
+docID: 15, score: 2, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html
+docID: 16, score: 2, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html
+docID: 3, score: 1, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/its-only-the-himalayas_981/index.html
+docID: 42, score: 1, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/category/books/history_32/index.html
+-------------------------------------------
+Query? Query: male or critiquer
+Query? Query: male or critiquer 
+Matches 1 document(s) (ranked):
+docID: 21, score: 2, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/tipping-the-velvet_999/index.html
+-------------------------------------------
+Query? Query: moments or prada and war
+Query? Query: moments or prada and war 
+Matches 1 document(s) (ranked):
+docID: 3, score: 1, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/its-only-the-himalayas_981/index.html
+-------------------------------------------
+Query? Query: day and fall or tough
+Query? Query: day and fall or tough 
+Matches 2 document(s) (ranked):
+docID: 16, score: 2, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html
+docID: 15, score: 1, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html
+-------------------------------------------
+Query? Query: dresser or male and critique
+Query? Query: dresser or male and critique 
+Matches 1 document(s) (ranked):
+docID: 21, score: 1, URL: http://cs50tse.cs.dartmouth.edu/tse/toscrape/catalogue/tipping-the-velvet_999/index.html
+-------------------------------------------
+Query? Query: (day and moments) or prada
+Error: invalid character '(', taking next query
+Query? Query? Query: day and (fall or tough)
+Error: invalid character '(', taking next query
+Query? Query? Query: (dresser or male) and critique
+Error: invalid character '(', taking next query
+Query? Query? Query: day and moments and prada
+Query? Query: day and moments and prada 
+No documents match.
+-------------------------------------------
+Query? Query: fall and tough
+Query? Query: fall and tough 
+No documents match.
+-------------------------------------------
+Query? Query: dresser and male and critique
+Query? Query: dresser and male and critique 
+No documents match.
+-------------------------------------------
+Query? Running invalid parseArgs tests...
+Testing invalid parseArgs:  
+Error: Argument 1 is an empty string.
+Usage: querier: pageDirectory indexFilename
+Correctly failed. Moving on...
+Testing invalid parseArgs: ../data/toscrape-1 
+Error: Argument 2 is an empty string.
+Usage: querier: pageDirectory indexFilename
+Correctly failed. Moving on...
+Testing invalid parseArgs: nonexistentDir nonexistentIndex
+Error: This file doesn't exist bruh.
+Testing invalid parseArgs: ../data/toscrape-1 nonexistentIndex
+Error: The specified index file does not exist.
+Testing invalid parseArgs: nonexistentDir ../data/toscrape-1/.index
+Error: This file doesn't exist bruh.
+All tests completed successfully.
