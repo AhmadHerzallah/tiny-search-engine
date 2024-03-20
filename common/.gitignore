@@ -1,2 +1,4 @@
 pagedir.o
 file.o
+word.o
+index.o
